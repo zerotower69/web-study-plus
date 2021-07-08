@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单的变量提升</title>
+</head>
+<body>
+    
+</body>
+<script >
+    var web="zerotower.cn"
+    console.log(zt);
+    var zt=2222;
+    /**
+    两部分
+    var zt;
+    zt=2222;
+    且var zt;提升到打印前
+    可以这样理解：
+    var web;
+    var zt;
+    web='zerotower.cn';
+    zt=2222;
+    console.log(zt);
+    * **/
+</script>
+</html>

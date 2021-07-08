@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let与块级作用于挂载后的暂时性死区</title>
+</head>
+<body>
+    <script>
+        //不要以为var 声明的name能传入块级作用于
+        var name='David';
+        {
+            console.log(name);   //这一行是暂时性死区   牢记let&const自己绑定在块级作用于里
+            let name="ZeroTower";
+            console.log("我不是暂时性死区",name);
+        }
+    </script>
+</body>
+</html>

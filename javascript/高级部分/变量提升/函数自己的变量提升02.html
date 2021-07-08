@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数自己的变量提升</title>
+</head>
+<body>
+    <script>
+
+        myFunc();  //先执行
+        var myFunc=function(){
+            console.log("函数myFunc被执行");
+        }
+
+        /**
+         * var myFunc=undefined
+         * myFunc();
+         * myFunc=function(){
+         * ...
+         * }
+         * /
+         * */
+         //这样来看不报错才怪  Uncaught TypeError: myFunc is not a function
+    </script>
+</body>
+</html>
