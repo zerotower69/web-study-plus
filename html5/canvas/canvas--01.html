@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初识canvas</title>
+</head>
+
+<body>
+    <canvas width="800" height="600" id="canvas"></canvas>
+</body>
+<script>
+    /**
+                    c==>ctx，很多网站和博客都用ctx获取canvas上下文，c有点太随意了，还是ctx这个变量好
+                    **/
+    //1.获取HTMLCanvasElement对象
+    var canvas = document.getElementById('canvas');
+    //2.获取canvas上下文
+    var ctx = canvas.getContext('2d');
+    //填充颜色
+    ctx.fillStyle = "red";
+    //3.绘制一个矩形
+    ctx.fillRect(100, 100, 400, 300);
+</script>
+
+</html>

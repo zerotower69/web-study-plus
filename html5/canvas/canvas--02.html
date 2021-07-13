@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘制一个带有边框的三角形</title>
+</head>
+
+<body>
+    <canvas width="800" height="600" id="canvas"></canvas>
+</body>
+<script>
+    //1.获取HTMLCanvasElement对象
+    var canvas = document.getElementById('canvas');
+    //2.获取canvas上下文
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ccddff';
+    ctx.beginPath();
+    ctx.moveTo(50, 20);
+    ctx.lineTo(200, 50);
+    ctx.lineTo(150, 80);
+    ctx.closePath();
+    ctx.fill();
+    ctx.strokeStyle = 'rgb(0,128,0)';
+    ctx.lineWidth = 5;
+    ctx.stroke();
+</script>
+
+</html>

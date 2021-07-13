@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的深拷贝-循环引用</title>
+</head>
+
+<body>
+    <script>
+        //本来以为01中来一个简单的迭代就完了,但是如果对象的某一个属性又引用了它自己呢?
+        let obj = {
+            age: 12,
+            city: ["beijing", "xian", "shanghai"],
+            child: {
+                age: 22,
+                city: ["Nanning", "Tianjin"]
+            },
+        };
+        obj.self = obj; //太狗了
+        console.log(obj); //self指向自身后的self又指向自身，就是一个循环引用了！
+        //按照我们之前写了深拷贝的那个函数,你是不是已经知道会发生什么了，直接溢出！好家伙！
+        //为了解决这个问题，最好还是判断某个属性是否指向对象自身。
+        function depClone(target, map = new Map()) {
+            if (typeof target === "object") {
+                let cloneTarget = Array.isArray(target) ? [] : {};
+                //目标作为key,克隆作为value,存在就直接返回,否则存入
+                if (map.get(target)) {
+                    return map.get(target);
+                }
+                map.set(target, cloneTarget);
+                for (const key in target) {
+                    cloneTarget[key] = depClone(target[key], map);
+                }
+                return cloneTarget;
+            } else {
+                return target;
+            }
+        }
+        let cloneObj = depClone(obj);
+        cloneObj.child.age = 4567;
+        console.log(obj);
+        console.log(cloneObj);
+    </script>
+</body>
+
+</html>

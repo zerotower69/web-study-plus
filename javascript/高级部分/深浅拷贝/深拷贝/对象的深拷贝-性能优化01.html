@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的深拷贝-性能优化01</title>
+</head>
+
+<body>
+    <script>
+        //1.使用WeakMap从强引用变为弱引用以便于垃圾回收
+        //2.使用while循环代替for循环来提升效率
+        let obj = {
+            age: 12,
+            city: ["beijing", "xian", "shanghai"],
+            child: {
+                age: 22,
+                city: ["Nanning", "Tianjin"]
+            },
+        };
+
+        function depClone(target, map = new WeakMap()) {
+            if (typeof target === "object") {
+                let cloneTarget = Array.isArray(target) ? [] : {};
+                //目标作为key,克隆作为value,存在就直接返回,否则存入
+                if (map.get(target)) {
+                    return map.get(target);
+                }
+                map.set(target, cloneTarget);
+                for (const key in target) {
+                    cloneTarget[key] = depClone(target[key], map);
+                }
+                return cloneTarget;
+            } else {
+                return target;
+            }
+        }
+    </script>
+</body>
+
+</html>

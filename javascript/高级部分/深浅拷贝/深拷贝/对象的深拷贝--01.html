@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的深拷贝</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            age: 12,
+            city: ["beijing", "xian", "shanghai"],
+            child: {
+                age: 22,
+                city: ["Nanning", "Tianjin"]
+            }
+        };
+        let newObj = Object.assign({}, obj);
+        console.log("obj====>", obj);
+        //newObj.age = 55; //不再影响原来的值
+        //然而，下面却不一定
+        //newObj.child.age = 333;
+        //console.log("obj===>", obj);
+        //console.log("newObj===>", newObj);
+
+        //使用递归实现深度拷贝
+        function depClone(obj) {
+            if (typeof obj === "object") {
+                //数组也是对象!,判断是否为数组
+                let cloneTarget = Array.isArray(obj) ? [] : {};
+                //记得区分 for of 和for in
+                for (const key in obj) {
+                    //递归使用
+                    cloneTarget[key] = depClone(obj[key]);
+                }
+                return cloneTarget;
+            } else {
+                //不是对象直接返回
+                return obj;
+            }
+        }
+        let depCloneObj = depClone(obj);
+        depCloneObj.child.age = 3333;
+        depCloneObj.child.city[0] = "New York";
+        console.log("obj===>", obj);
+        console.log("depCloneObj===>", depCloneObj);
+    </script>
+    </script>
+</body>
+
+</html>

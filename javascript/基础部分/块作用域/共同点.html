@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>var/let/const的共同点</title>
+</head>
+
+<body>
+    <script>
+        //共同点：全局作用域中定义的变量可以在函数中使用
+
+        var web = "zerotower.cn";
+        let name = "zerotower";
+        const age = 22;
+
+        function printSome() {
+            console.log("web===>", web);
+            console.log("name==>", name);
+            console.log("age==>", age);
+        }
+        printSome();
+    </script>
+</body>
+
+</html>

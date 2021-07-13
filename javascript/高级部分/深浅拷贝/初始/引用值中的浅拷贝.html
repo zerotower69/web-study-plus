@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引用值中的浅拷贝</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            age: 12,
+            city: ["beijing", "xian", "shanghai"],
+            child: {
+                age: 22,
+                city: ["Nanning", "Tianjin"]
+            }
+        };
+        //let newObj = obj;
+        //console.log("obj====>", obj);
+        //newObj.age = 55;
+        //console.log("obj===>", obj);
+        //console.log("newObj===>", newObj);
+        let newObj = Object.assign({}, obj);
+        console.log("obj====>", obj);
+        newObj.age = 55; //不再影响原来的值
+        console.log("obj===>", obj);
+        console.log("newObj===>", newObj);
+    </script>
+</body>
+
+</html>

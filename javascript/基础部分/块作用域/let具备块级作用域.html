@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let具备块级作用域</title>
+</head>
+
+<body>
+    <script>
+        //1.let存在块作用域特性，变量只在块域中有效
+        if (true) {
+            let web = '',
+                url = 'houdunren.com';
+            console.log(web); //hdcms
+        }
+        console.log(web); //web is not defined
+    </script>
+</body>
+
+</html>

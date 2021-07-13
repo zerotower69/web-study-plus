@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let name = 'David';
+        let person = {
+            name: 'zerotower',
+            age: 22
+        };
+
+        function printName(surName, otherName) {
+            console.log(this.name)
+            console.log("surName===>", surName);
+            console.log("otherName===>", otherName);
+        }
+        //bind不立即执行,可看出bind有返回值
+        let pName = printName.bind(person, "lin", "he"); //this绑定了person
+        // pName();
+    </script>
+</body>
+
+</html>
