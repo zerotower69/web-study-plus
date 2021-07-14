@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>var声明循环变量造成的污染</title>
+</head>
+
+<body>
+    <script>
+        var i = 10;
+        // for (var i = 0; i < 8; i++) {
+        //     // console.log(i);
+        // }
+        //console.log(i); //循环里的i污染了全局的i
+
+        //循环变量还是使用let,由于块级作用域的性质不会全局污染
+        for (let i = 0; i < 8; i++) {}
+        console.log(i);
+    </script>
+</body>
+
+</html>

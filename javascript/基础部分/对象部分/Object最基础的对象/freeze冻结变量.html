@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>freeze冻结变量</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        const INFO = {
+            url: 'https://www.zerotower.cn',
+            name: 'ZeroTower',
+            school: {
+                name: 'CNU',
+                location: 'Beijing'
+            }
+        }
+        console.log(INFO);
+        Object.freeze(INFO); //冻结了这个对象，不可再更改了
+        //INFO.name = "David" //wrong
+        //但是这个不可更改只是限制了浅层次的修改，下面的示例任然是生效的
+        INFO.school.name = "CNUUU"
+        console.log(INFO);
+    </script>
+</body>
+
+</html>
