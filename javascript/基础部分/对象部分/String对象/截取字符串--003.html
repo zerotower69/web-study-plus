@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取字符串</title>
+</head>
+
+<body>
+    <script>
+        let str = "zerotower";
+        //三个截取字符串的函数
+        //1.slice
+        let str1 = str.slice(4, 9);
+        console.log("str===>", str);
+        console.log("get the 'tower'");
+        console.log('use slice===>', str1);
+        let str2 = str.substr(4, 5);
+        console.log("use substr===>", str2);
+        let str3 = str.substring(4, 9);
+        console.log("use substring===>", str3);
+    </script>
+</body>
+
+</html>
