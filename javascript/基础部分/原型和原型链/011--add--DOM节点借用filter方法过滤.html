@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM节点借用filter方法过滤</title>
+</head>
+
+<body>
+    <button message="hhhh" class="red">按钮1</button>
+    <button message="hhhh">按钮22</button>
+    <button message="hhhh" class="red">按钮333</button>
+    <button message="hhhh" class="red">按钮4444</button>
+    <button message="hhhh">按钮55555</button>
+    <script>
+        let btns = document.querySelectorAll("button");
+        //借用数组中的filter方法实现过滤，获取具有class属性的按钮
+        btns = Array.prototype.filter.call(btns, item => {
+            return item.hasAttribute("class");
+        })
+        console.log(btns);
+    </script>
+</body>
+
+</html>

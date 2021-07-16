@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>借用原型中的方法实现某些功能</title>
+</head>
+
+<body>
+    <script>
+        //对象可以通过call与apply借用其它对象的方法
+        let zt = {
+            data: [1, 2, 3, 4, 5]
+        };
+        //设置原型
+        Object.setPrototypeOf(zt, {
+            max: function() {
+                return this.data.sort((a, b) => b - a)[0];
+            }
+        })
+        console.log(zt.max());
+        let xj = {
+            lessons: {
+                js: 100,
+                php: 78,
+                node: 78,
+                linux: 125
+            },
+            get data() {
+                return Object.values(this.lessons);
+            }
+        };
+        console.log(zt.__proto__.max.call(xj));
+    </script>
+</body>
+
+</html>
